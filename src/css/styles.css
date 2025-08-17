@@ -1,0 +1,480 @@
+@import url(./normalize.css);
+
+/* Contenedor principal centrado para el contenido de la página */
+.main-content {
+  width: 100%;
+  max-width: 1600px;         /* Controla el ancho máximo del contenido */
+  margin: 0 auto;            /* Centra el contenido horizontalmente */
+  padding: 0 20px;           /* Pequeño padding interno */
+  box-sizing: border-box;
+}
+
+/* Fondo del body simulando la profundidad del mar */
+body {
+  background: linear-gradient(to bottom, #0077b6, #023e8a, #001d3d); /* Degradado marino */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* Navbar */
+
+.navbar-custom {
+  position: relative;   /* Necesario para que los elementos absolutos (como el video) se posicionen dentro */
+  height: 100px;
+  overflow: hidden;     /* Esconde lo que sobresale, como el video */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  min-height: 12rem;
+}
+
+.navbar-custom .bg-video {
+  position: absolute;   /* Posiciona el video respecto al contenedor padre (.navbar-custom) */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;    /* Hace que el video se recorte para llenar el espacio sin deformarse */
+  z-index: -1;          /* Lo manda detrás del contenido textual */
+}
+
+.navbar-container {
+  position: relative;
+  display: flex;         /* Usa Flexbox para alinear el contenido */
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 5%;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 25px;      /* Espaciado entre enlaces */
+  text-decoration: none;  /* Quita el subrayado */
+  font-weight: 500;
+  transition: color 0.3s; /* Suaviza el cambio de color al pasar el mouse */
+}
+.nav-links a:hover { color: #00bcd4; }
+.logo {
+  font-size: 28px;        /* Tamaño Fuente */
+  font-weight: 600;       /* Negrita */ 
+}
+
+/*carrusel*/
+/* Contenedor principal del carrusel */
+.carousel-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+/* panel */
+.submarine-section {
+  display: flex;
+  min-height: 50vh;
+  font-family: sans-serif;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: 0; /* Elimina márgenes predeterminados */
+  padding: 10px; /* Elimina paddings predeterminados */
+  border-top: 2px solid #00a8a3; /* Borde superior personalizado */
+  border-bottom: 2px solid #00a8a3; /* Borde inferior personalizado */
+  box-sizing: border-box; /* Incluye bordes en el cálculo del tamaño */
+}
+/* Lado del texto */
+.text-content {
+  flex: 1 1 50%;
+  background-color: #00b7b1;
+  color: #fffbea;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Lado de la imagen */
+.image-content {
+  flex: 1 1 50%;
+  background-image: url('../public/img/1.webp');
+  background-size: cover;
+  background-position: center;
+  position: relative; /* necesario para la onda */
+  min-height: 50vh; /* asegura que mida lo mismo que el texto */
+}   
+
+/* Forma de onda */
+.image-content::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 600" xmlns="http://www.w3.org/2000/svg"><path d="M100,0 C50,100 50,500 100,600 L0,600 L0,0 Z" fill="white"/></svg>') no-repeat center;
+  background-size: cover;
+  z-index: 2;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+  .submarine-section {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .text-content, .image-content {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .image-content::before {
+    display: none; /* quita la onda en móvil */
+  }
+
+  .text-content h2 {
+    font-size: 2rem;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Contactenos */
+
+.contact-section {
+  padding: 60px 20px;     /* Espacio Interno */
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-container {
+  max-width: 600px;       /* El contenido no será más ancho que 600px, para mantenerlo legible */
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;  /*Organiza los campos uno debajo del otro*/
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #00bcd4;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;   /* Suaviza el efecto de hover */
+}
+
+.contact-form button:hover {
+  background-color: #0194a3;        /* Cambia el color del botón al pasar el mouse */
+}
+
+/* Footer */
+
+.footer-custom {
+  position: relative;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  min-height: 12rem;
+}
+
+.footer-custom .bg-video-footer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-social {
+  margin-top: 15px;                /* Espacio entre el contenido del footer y los íconos sociales */
+}
+.footer-social a {
+  color: #00bcd4;
+  font-size: 22px;
+  margin: 0 10px;
+  transition: transform 0.2s ease; /* Suaviza la animación al escalar */
+}
+
+/* Ajustes de la Opacidad del video */
+
+.navbar-custom .bg-video,
+.footer-custom .bg-video-footer {
+  opacity: 0.6;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 35, 35, 0.2); /* Capa oscura semitransparente: mejora el contraste */
+  z-index: -1;
+}
+
+/* Main para Footer */
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------------------------Información----------------------- */
+
+.apnea-section {
+position: relative;
+padding: 0 20px;
+background: linear-gradient(to bottom, #01203d, #3cc8ff);
+color: rgb(253, 253, 253);
+overflow: hidden;
+font-family: 'Segoe UI', sans-serif;
+margin: 0 auto;
+box-sizing: border-box;
+}
+
+.apnea-section h2 {
+    font-size: 4.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.apnea-section .intro {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+    opacity: 0;
+    transform: translateY(30px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+#bubbleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+        max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 100%;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.content {
+    position: relative;
+    z-index: 20;
+        max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.benefits-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.benefit-box {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: center;
+}
+
+.benefit-title {
+    font-size: 1.1em;
+    margin-bottom: 35px;
+    color: #fff;
+}
+
+.benefit-box img {
+    max-width: 100%;
+    width: 260px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.6s ease;
+}
+
+.benefit-box img:hover {
+    transform: scale(1.105);
+}
+.card-hover {
+    position: relative;
+    width: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card-hover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img-front {
+    opacity: 1;
+    z-index: 1;
+}
+
+.img-back {
+    opacity: 0;
+    z-index: 2;
+}
+
+
+/* --------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------Tienda en linea-------------------------------------------------------- */
+
+#photo {
+    border-radius: 5%;
+    width: 20rem;
+  height: 20rem; /* o el alto que tú necesites */
+  object-fit: contain;
+
+}
+
+#card-principal {
+
+    background-color: #fcf9f9;
+    border-color: #fcf9f9;
+}
+
+/* .tiendaEnLinea{
+    display: inline-flex;
+} */
+
+#productosLista{
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    justify-content: center;
+  
+}
+
+#button-nav-tienda{
+    display: flex;
+    align-items: center;
+}
+
+#button_to_Buy{
+    font-size: 1.5rem;
+}
+
+#prevBtn, #nextBtn {
+    font-size: 3rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+#nuestra_tienda{
+    align-content: center;
+    margin: 1rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    color: #ffffff;
+
+}
+#btnVerCarrito{
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px; 
+  margin-bottom: 15px;
+  color: #fff;
+  width: 200px;
+  height: 40px;
+  background-color: #4c6d90;
+}
+/* -------------------------------------------------------------------------------------------------------------- */

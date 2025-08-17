@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freediving</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+ <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    
+</head>
+
+<body>
+
+
+    <header class="navbar-custom">
+        <div class="video-overlay"></div>
+        <video autoplay muted loop class="bg-video">
+            <source src="./src/public/video/Water.mp4" type="video/mp4" />
+        </video>
+        <div class="navbar-container">
+            <h1 class="logo">Freediving</h1>
+            <nav class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#apnea-info">Beneficios</a>
+                <a href="#tiendaEnLinea">Tienda</a>
+                <a href="#contacto"><i class="bi bi-envelope-fill"></i> Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+  
+    <main>
+      <div class="main-content">
+        <section class="carrousel">
+            
+
+                <!-- ✅ Carrusel de imágenes -->
+                <section class="carousel-container">
+                    <div class="carousel">
+                        <div class="slide">
+                            <img src="src/public/img/remplazo1.webp" alt="Buceo 1" id="imageCarousel">
+                        </div>
+                        <div class="slide">
+                            <img src="src/public/img/remplazo2.webp" alt="Buceo 2" id="imageCarousel">
+                        </div>
+                        <div class="slide">
+                            <img src="src/public/img/buceo3.webp" alt="Buceo 3" id="imageCarousel">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ✅ Panel de información con forma -->
+                <section class="submarine-section">
+                    <div class="text-content">
+                        <h2>Atrévete a Respirar Libertad Bajo el Agua</h2>
+                        <p>
+                            La APNEA no es solo un deporte, es libertad pura.
+                            Sumérgete sin tanques, en silencio, conectando con tu cuerpo, tu mente y el océano.
+                            Supera tus límites, explora un mundo submarino lleno de calma y belleza.
+                            <br><br>
+                            💙 Aprende a confiar en ti mismo<br>
+                            💙 Respira, suelta el miedo y desciende<br><br>
+                            Todos podemos hacerlo. Solo necesitas una respiración.
+                            ¿Listo para vivir la experiencia?<br>
+                            Bienvenido a la apnea.
+                        </p>
+                    </div>
+                    <div class="image-content"></div>
+
+                </section>
+        </section>
+
+        <section id="apnea-info" class="apnea-section" >
+            <div class="content">
+                <h2>Descubre la Apnea</h2>
+                <p class="intro">La apnea es un deporte acuático que consiste en contener la respiración bajo el agua,
+                    explorando los límites del cuerpo y la mente.</p>
+                <ul class="benefits">
+                    <div class="benefits-row">
+                        <div class="benefit-box">
+                            <h3 class="benefit-title">Mejora la capacidad pulmonar</h3><br>
+                            <div class="image-container">
+                                <img src="./src/public/img/Imagen2.webp" alt="Capacidad" />
+                            </div>
+                        </div>
+                        <div class="benefit-box">
+                            <h3 class="benefit-title">Aumenta la concentración y el control mental</h3>
+                            <div class="image-container">
+                                <img src="./src/public/img/Imagen9.webp" alt="Concentración" />
+                            </div>
+                        </div>
+                        <div class="benefit-box">
+                            <h3 class="benefit-title">Fortalece la musculatura y resistencia</h3>
+                            <div class="image-container">
+                                <img src="./src/public/img/Imagen6.webp" alt="Musculatura" />
+                            </div>
+                        </div>
+                        <div class="benefit-box">
+                            <h3 class="benefit-title">Conexión profunda con el entorno marino</h3>
+                            <div class="image-container">
+                                <img src="./src/public/img/Imagen7.webp" alt="Entorno" />
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <canvas id="bubbleCanvas"></canvas>
+        </section>
+
+         <!-- tienda en linea -->
+        <section class="tiendaEnLinea" id="tiendaEnLinea">
+            <h2 id="nuestra_tienda">...y tú ¿Te atreves a empezar en este lindo deporte? <br><br>Empieza con Nuestra Tienda</h2>
+            <div id="productosLista">
+
+                <div class="pagination-buttons mt-3" id="button-nav-tienda">
+                    <button id="prevBtn" class="btn "><</i></button>
+                </div>
+
+                <div class="contenedor-carousel">
+
+                    <div id="cardsContainer" class="d-flex gap-3 flex-wrap">
+
+                        <div class="card me-3" style="min-width: 18rem;">
+                            <img src="./src/public/img/gara modular.webp" class="card-img-top" alt="..." id="photo">
+                            <div class="card-body">
+                                <h4 class="card-title">Gara Modular</h4>
+                                <h6 class="card-title">Cressi</h6>
+                                 <h6 class="card-title">Código: 1001</h6>
+                                <p class="card-text">$800.000</p>
+                                <a href="#" class="btn btn-primary agregar-carrito" data-code="1001" id="button_to_Buy">
+                                   <i class="bi bi-cart-plus-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card me-3" style="min-width: 18rem;">
+                            <img src="./src/public/img/gara modular impulse.webp" class="card-img-top" alt="..."
+                                id="photo">
+                            <div class="card-body">
+                                <h4 class="card-title">Gara Modular Impulse</h4>
+                                <h6 class="card-title">Cressi</h6>
+                                <h6 class="card-title">Código: 1002</h6>
+                                <p class="card-text">$850.000</p>
+                                <a href="#" class="btn btn-primary agregar-carrito" data-code="1002" id="button_to_Buy">
+                                   <i class="bi bi-cart-plus-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card me-3" style="min-width: 18rem;">
+                            <img src="./src/public/img/leaderfins1.webp" class="card-img-top" alt="..." id="photo">
+                            <div class="card-body">
+                                <h4 class="card-title">Aletas Fiberglass</h4>
+                                <h6 class="card-title">LeaderFins</h6>
+                                <h6 class="card-title">Código: 1003</h6>
+                                <p class="card-text">$1.350.000</p>
+                                <a href="#" class="btn btn-primary agregar-carrito" data-code="1003" id="button_to_Buy">
+                                    <i class="bi bi-cart-plus-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card me-3" style="min-width: 18rem;">
+                            <img src="./src/public/img/careta Superocchio.webp" class="card-img-top" alt="..." id="photo">
+                            <div class="card-body">
+                                <h4 class="card-title">Careta Superocchio</h4>
+                                <h6 class="card-title">Cressi</h6>
+                                <h6 class="card-title">Código: 1004</h6>
+                                <p class="card-text">$250.000</p>
+                                <a href="#" class="btn btn-primary agregar-carrito" data-code="1004" id="button_to_Buy">
+                                  <i class="bi bi-cart-plus-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card me-3" style="min-width: 18rem;">
+                            <img src="./src/public/img/phantom.webp" class="card-img-top" alt="..." id="photo">
+                            <div class="card-body">
+                                <h4 class="card-title">Careta Phantom</h4>
+                                <h6 class="card-title">LeaderFins</h6>
+                                <h6 class="card-title">Código: 1005</h6>
+                                <p class="card-text">$350.000</p>
+                                <a href="#" class="btn btn-primary agregar-carrito" data-code="1005" id="button_to_Buy">
+                                   <i class="bi bi-cart-plus-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card me-3" style="min-width: 18rem;">
+                            <img src="./src/public/img/aqualung-airflex.webp" class="card-img-top" alt="..." id="photo">
+                            <div class="card-body">
+                                <h4 class="card-title">Snorkel Airflex</h4>
+                                <h6 class="card-title">Aqualung</h6>
+                                <h6 class="card-title">Código: 1006</h6>
+                                <p class="card-text">$90.000</p>
+                               <a href="#" class="btn btn-primary agregar-carrito" data-code="1006" id="button_to_Buy">
+                                    <i class="bi bi-cart-plus-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="pagination-buttons mt-3 " id="button-nav-tienda">
+                    <button id="nextBtn" class="btn">></button>
+                </div>
+            </div>
+            
+ <button onclick="mostrarResumenCarrito()" class="btn btn-secondary" id="btnVerCarrito">Ver carrito</button>
+        </section>
+                <section class="contact-section" id="contacto">
+            <div class="contact-container">
+                <h2>Contáctanos</h2>
+                <p>¿Tienes preguntas sobre el freediving? ¡Escríbenos!</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Tu nombre" required />
+                    <input type="email" placeholder="Tu correo" required />
+                    <textarea rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer-custom">
+        <div class="video-overlay"></div>
+        <video autoplay muted loop class="bg-video-footer">
+            <source src="./src/public/video/Water.mp4" type="video/mp4" />
+        </video>
+        <div class="footer-container">
+            <p>&copy; 2025 Freediving Landing. Todos los derechos reservados.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.WhatsApp.com"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://www.github.com"><i class="bi bi-github"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>
